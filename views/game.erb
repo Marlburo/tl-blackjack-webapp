@@ -1,1 +1,21 @@
-game.erb
+<h1>Blackjack!</h1>
+<p>Welcome <%= session[:player_name] %>.</p>
+
+<p><%= session[:player_name]%>'s card:</p>
+	<% session[:player_cards].each do |card|%>
+		<%= card_image(card)%>
+	<% end %>
+
+
+<p>Dealer's card</p>
+	<% session[:dealer_cards].each do |card|%>
+		<%= card_image(card)%>
+	
+	<% end %>
+
+
+<div class="btn-group">
+	<button type="button" class="btn btn-default">Hit</button>
+	<button type="button" class="btn btn-default">stay</button>
+
+</div>
