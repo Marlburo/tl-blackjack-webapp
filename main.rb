@@ -5,17 +5,23 @@ require 'sinatra'
 set :sessions, true
 
 helpers do
-
-	def check_cards(card_review)
-  	if (card_review == 'J' || card_review == 'Q' || card_review == 'K')
-    	return 10
-  	elsif card_review == 'A'
-  		session[:aces_available] += 1 
-    	return 11
-  	else 
-    	return card_review.to_i
-  	end
+	def calculate_total(cards)
+		arr = cards.map {|element| element[1]}
+		total = 0
+			arr.each do |a|
+				if a == "A"
+					total += 11
+				else
+					total += a.to_i == 0 ? 10 : a.to_i
+				end
+			end
+		arr.select{|element| element == "A"}.count.times do
+		break if total <= 21
+		total -=10
 	end
+	total
+end 
+
 
 	def card_image(card)
 		suit = case card[0]
@@ -41,9 +47,9 @@ end
 
 get '/' do
 	if session[:player_name]
-		redirect '/game'
-	else
 		redirect '/new_player'
+	else
+		redirect '/game'
 	end
 end
 
@@ -72,4 +78,20 @@ get '/game' do
   session[:player_cards] << session[:deck].pop
 
   erb :game
+end
+
+post '/game/player/hit' do
+	session[:player_cards] << session[:deck].pop
+
+	erb :game
+end
+
+post '/game/player/stay' do
+
+	redirect '/game/dealer'
+end
+
+get '/game/dealer' do
+
+	erb :game
 end
