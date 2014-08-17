@@ -1,30 +1,39 @@
 
 <p>Welcome <%= session[:player_name] %>.</p>
-<strong><h1>Would you like to restart</h1>
-<a href='/game'>Play again</a>
-</strong>
+<strong><a href='/game'>Play again</a></strong>
 <div class="well">
 <p><%= session[:player_name]%>'s card:</p>
 	<% session[:player_cards].each do |card|%>
 		<%= card_image(card)%>
 	<% end %>
-<p>
+</div>
+
+<div class="btn-group">
 	<form id="hit_form" action="/game/player/hit" method='post'>
 		<input type="submit" class="btn btn-success" value="Hit" />
 	</form>
 	<form id="stay_form" action="/game/player/stay" method='post'>
-		<input type="submit" class="btn btn-warning" value="Stay" />
+		<input type="submit" class="btn btn-inverse" value="Stay" />
 	</form>
-</p>
 </div>
+
 <%= session[:player_name] %> has <%= calculate_total(session[:player_cards]) %>
 
 <div class="well"
-<p>Dealer's card</p>
-	<% session[:dealer_cards].each do |card|%>
-		<%= card_image(card)%>
-<% end %>
+	<p>Dealer's card</p>
+		<% session[:dealer_cards].each do |card|%>
+			<%= card_image(card)%>
+	<% end %>
+
+  <% if @show_dealer_hit_button %>
+    <p>
+      <h5>Dealer has <%= calculate_total(session[:dealer_cards])%> and will hit.</h5>
+      <form action='/game/dealer/hit' method='post'>
+          <input type='submit' class='btn btn-primary' value='Click to see dealer card &rarr;'>
+        </form>
+    </p>
+  <% end %>
 </div>
 
-What would <%= session[:player_name] %> like to do?
+What would <%=session[:player_name]%>  like to do?
 <%= session[:player_name] %> has <%= calculate_total(session[:player_cards]) %>
