@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'sinatra'
 
 
@@ -80,9 +79,12 @@ get '/game' do
   erb :game
 end
 
+get '/game/main' do
+	erb :game
+end
+
 post '/game/player/hit' do
 	session[:player_cards] << session[:deck].pop
-
 	erb :game
 end
 
@@ -92,6 +94,31 @@ post '/game/player/stay' do
 end
 
 get '/game/dealer' do
+	#session[:dealer_cards]<<session[:deck].pop
+	  @show_hit_or_stay_buttons = false
 
+  # decision tree
+  dealer_total = calculate_total(session[:dealer_cards])
+
+  if dealer_total == 21
+    @error = "Sorry, dealer hit blackjack."
+  elsif dealer_total > 21
+    @success = "Congratulations, dealer busted. You win."
+  elsif dealer_total >= 17 #17, 18, 19, 20
+    # dealer stays
+    redirect '/game/compare'
+  else
+    # dealer hits
+    @show_dealer_hit_button = true
+  end
+	erb :game
+end
+
+post '/game/dealer/hit' do
+  session[:dealer_cards] << session[:deck].pop
+  redirect '/game/dealer'
+end
+
+get '/game/compare' do
 	erb :game
 end

@@ -1,10 +1,21 @@
 
 <p>Welcome <%= session[:player_name] %>.</p>
+<strong><h1>Would you like to restart</h1>
+<a href='/game'>Play again</a>
+</strong>
 <div class="well">
 <p><%= session[:player_name]%>'s card:</p>
 	<% session[:player_cards].each do |card|%>
 		<%= card_image(card)%>
 	<% end %>
+<p>
+	<form id="hit_form" action="/game/player/hit" method='post'>
+		<input type="submit" class="btn btn-success" value="Hit" />
+	</form>
+	<form id="stay_form" action="/game/player/stay" method='post'>
+		<input type="submit" class="btn btn-warning" value="Stay" />
+	</form>
+</p>
 </div>
 <%= session[:player_name] %> has <%= calculate_total(session[:player_cards]) %>
 
@@ -14,13 +25,6 @@
 		<%= card_image(card)%>
 <% end %>
 </div>
-
-	<form id="hit_form" action="game/player/hit" method='post'>
-		<input type="button" class="btn btn-success" value="Hit" />
-	</form>
-	<form id="hit_form" action="game/player/stay" method='post'>
-		<input type="button" class="btn btn-warning" value="Stay" />
-	</form>
 
 What would <%= session[:player_name] %> like to do?
 <%= session[:player_name] %> has <%= calculate_total(session[:player_cards]) %>

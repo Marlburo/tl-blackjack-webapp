@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"pla",
+				"player_cards"
+			],
+			[
 				"g",
 				"game_deck"
 			],
@@ -29,10 +33,6 @@
 			],
 			[
 				"player_car",
-				"player_card_value"
-			],
-			[
-				"pla",
 				"player_card_value"
 			],
 			[
@@ -107,6 +107,48 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "views/new_player.erb",
+			"settings":
+			{
+				"buffer_size": 159,
+				"line_ending": "Unix",
+				"name": "new_player.erb"
+			}
+		},
+		{
+			"file": "views/layout.erb",
+			"settings":
+			{
+				"buffer_size": 644,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "main.rb",
+			"settings":
+			{
+				"buffer_size": 1791,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "views/game.erb",
+			"settings":
+			{
+				"buffer_size": 808,
+				"line_ending": "Unix",
+				"name": "game.erb"
+			}
+		},
+		{
+			"file": "views/hit.erb",
+			"settings":
+			{
+				"buffer_size": 14,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -135,6 +177,9 @@
 	},
 	"file_history":
 	[
+		"/home/marlburo/tealeaflesson3webapp/tl-blackjack-webapp/config.ru",
+		"/home/marlburo/tealeaflesson3webapp/tl-blackjack-webapp/views/game.erb",
+		"/home/marlburo/tealeaflesson3webapp/tl-blackjack-webapp/mainprj",
 		"/home/marlburo/GotealeafLesson3/sinatra.rb",
 		"/home/marlburo/GotealeafLesson3/bootstrap/css/bootstrap.min.css",
 		"/home/marlburo/gotealeaf/lecture2.rb",
@@ -181,8 +226,157 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "views/new_player.erb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 159,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								145,
+								145
+							]
+						],
+						"settings":
+						{
+							"auto_name": "new_player.erb",
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "views/layout.erb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 644,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								59,
+								59
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "main.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1791,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1688,
+								1688
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"tab_size": 2
+						},
+						"translation.x": 0.0,
+						"translation.y": 90.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "views/game.erb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 808,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								676,
+								676
+							]
+						],
+						"settings":
+						{
+							"auto_name": "game.erb",
+							"history_list_is_closing": true,
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "views/hit.erb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14,
+								14
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
 			]
 		}
 	],
