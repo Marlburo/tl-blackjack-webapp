@@ -120,21 +120,23 @@ post '/game/player/hit' do
 end
 
 post '/game/player/stay' do
-
+  @success = "#{session[:player_name]} has chosen to stay."
+  @show_hit_or_stay_buttons = false
 	redirect '/game/dealer'
 end
 
 get '/game/dealer' do
 	#session[:dealer_cards]<<session[:deck].pop
+		session[:turn] = "dealer"
 	  @show_hit_or_stay_buttons = false
 
   # decision tree
   dealer_total = calculate_total(session[:dealer_cards])
 
   if dealer_total == 21
-    @error = "Sorry, dealer hit blackjack."
+    loser!("Sorry, dealer hit blackjack.")
   elsif dealer_total > 21
-    @success = "Congratulations, dealer busted. You win."
+    winner!("Congratulations, dealer busted at #{dealer_total}. You win.")
   elsif dealer_total >= 17 #17, 18, 19, 20
     # dealer stays
     redirect '/game/compare'
@@ -151,7 +153,7 @@ post '/game/dealer/hit' do
 end
 
 get '/game/compare' do
-
+	@show_hit_or_stay_buttons = false
   player_total = calculate_total(session[:player_cards])
   dealer_total = calculate_total(session[:dealer_cards])
 	

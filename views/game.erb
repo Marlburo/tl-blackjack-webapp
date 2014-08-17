@@ -8,14 +8,16 @@
 	<% end %>
 </div>
 
-<div class="btn-group">
-	<form id="hit_form" action="/game/player/hit" method='post'>
-		<input type="submit" class="btn btn-success" value="Hit" />
-	</form>
-	<form id="stay_form" action="/game/player/stay" method='post'>
-		<input type="submit" class="btn btn-inverse" value="Stay" />
-	</form>
-</div>
+<%if @show_hit_or_stay_buttons %>
+	<div class="btn-group">
+		<form id="hit_form" action="/game/player/hit" method='post'>
+			<input type="submit" class="btn btn-success" value="Hit" />
+		</form>
+		<form id="stay_form" action="/game/player/stay" method='post'>
+			<input type="submit" class="btn btn-inverse" value="Stay" />
+		</form>
+	</div>
+<%end%>
 
 <%= session[:player_name] %> has <%= calculate_total(session[:player_cards]) %>
 
@@ -36,4 +38,4 @@
 </div>
 
 What would <%=session[:player_name]%>  like to do?
-<%= session[:player_name] %> has <%= calculate_total(session[:player_cards]) %>
+the dealer has <%= calculate_total(session[:dealer_cards]) %>
